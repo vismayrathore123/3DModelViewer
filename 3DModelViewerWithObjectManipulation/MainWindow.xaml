@@ -1,0 +1,30 @@
+﻿<Window x:Class="_3DModelViewerWithObjectManipulation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:helix="http://helix-toolkit.org/wpf"
+        xmlns:local="clr-namespace:_3DModelViewerWithObjectManipulation"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <!-- 3D Viewer -->
+        <helix:HelixViewport3D Name="MainViewport" Grid.Row="0" Background="LightGray">
+            <helix:DefaultLights />
+            <ModelVisual3D x:Name="modelVisual" />
+        </helix:HelixViewport3D>
+
+        <!-- Control Panel -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="Load Model" Width="100" Margin="5" Click="OnLoadModelClick" />
+            <Button Content="Rotate" Width="100" Margin="5" Click="OnRotateClick" />
+            <Button Content="Reset View" Width="100" Margin="5" Click="OnResetClick" />
+            <Slider Minimum="0.1" Maximum="5" Value="1" Width="150" Margin="5" ValueChanged="OnScaleChanged" />
+        </StackPanel>
+    </Grid>
+</Window>
